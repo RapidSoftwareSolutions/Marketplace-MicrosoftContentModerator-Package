@@ -4,7 +4,7 @@ $app->post('/api/MicrosoftContentModerator/deleteAllImagesFromList', function ($
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','listId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','region','listId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/MicrosoftContentModerator/deleteAllImagesFromList', function ($
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','listId'=>'listId'];
+    $requiredParams = ['apiKey'=>'apiKey','region'=>'region','listId'=>'listId'];
     $optionalParams = [];
     $bodyParams = [
     ];
@@ -32,11 +32,11 @@ $app->post('/api/MicrosoftContentModerator/deleteAllImagesFromList', function ($
         'Australia East' => 'australiaeast',
         'Brazil South' => 'brazilsouth'
     );
-    $data['availableApi'] = $arrayApi[$data['availableApi']];
+    $data['region'] = $arrayApi[$data['region']];
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists/{$data['listId']}/images";
+    $query_str = "https://{$data['region']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists/{$data['listId']}/images";
 
     
 
@@ -50,7 +50,7 @@ $app->post('/api/MicrosoftContentModerator/deleteAllImagesFromList', function ($
 
         if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => $responseBody);
+            $result['contextWrites']['to'] = array('results' => $responseBody);
             if(empty($result['contextWrites']['to'])) {
                 $result['contextWrites']['to']['status_msg'] = "Api return no results";
             }

@@ -4,7 +4,7 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','listId','term','language']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','region','listId','term','language']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','listId'=>'listId','term'=>'term','language'=>'language'];
+    $requiredParams = ['apiKey'=>'apiKey','region'=>'region','listId'=>'listId','term'=>'term','language'=>'language'];
     $optionalParams = [];
     $bodyParams = [
     ];
@@ -43,11 +43,11 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
         'Australia East' => 'australiaeast',
         'Brazil South' => 'brazilsouth'
     );
-    $data['availableApi'] = $arrayApi[$data['availableApi']];
+    $data['region'] = $arrayApi[$data['region']];
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/terms/{$data['term']}?language={$data['language']}";
+    $query_str = "https://{$data['region']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/terms/{$data['term']}?language={$data['language']}";
 
     
 

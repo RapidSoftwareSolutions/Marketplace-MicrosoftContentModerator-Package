@@ -25,7 +25,7 @@ Returns probabilities of the image containing racy or adult content.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | cacheImage  | Select     | Whether to retain the submitted image for future use; defaults to false if omitted.
 | imageUrl    | String     | Image url for scan.
 
@@ -35,7 +35,7 @@ Returns probabilities of the image containing faces.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | cacheImage  | Select     | Whether to retain the submitted image for future use; defaults to false if omitted.
 | imageUrl    | String     | Image url for scan.
 
@@ -45,7 +45,7 @@ Fuzzily match an image against one of your custom Image Lists. You can create an
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The id of list.
 | cacheImage  | Select     | Whether to retain the submitted image for future use; defaults to false if omitted.
 | imageUrl    | String     | Image url for scan.
@@ -56,7 +56,7 @@ Returns any text found in the image for the language specified.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | cacheImage  | Select     | Whether to retain the submitted image for future use; defaults to false if omitted.
 | imageUrl    | String     | Image url for scan.
 | language    | String     | ISO 639-3 code. See more [here](http://www-01.sil.org/iso639-3/codes.asp).
@@ -69,7 +69,7 @@ This operation will detect the language of given input content. Returns the ISO 
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
 | contentType | Select     | Media type of the body sent to the API.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | text        | String     | Text for scan.
 
 ## MicrosoftContentModerator.detectProfanityLanguage
@@ -79,7 +79,7 @@ The operation detects profanity in more than 100 languages and match against cus
 |--------------------------------|------------|----------
 | apiKey                         | credentials| Your API Key.
 | contentType                    | Select     | Media type of the body sent to the API.
-| availableApi                   | Select     | The region that most closely describes your location.
+| region                   | Select     | The region that most closely describes your location.
 | text                           | String     | Text for scan.
 | language                       | String     | ISO 639-3 code. See more [here](http://www-01.sil.org/iso639-3/codes.asp).
 | autocorrect                    | Select     | Runs auto correction on the input, before running other operations.
@@ -92,7 +92,7 @@ Add an Image to your image list. The image list can be used to do fuzzy matching
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | tag         | Select     | The list to be for matching.
 | label       | String     | Any additional information about the reference image.
@@ -104,7 +104,7 @@ Delete an Image from your image list. The image list can be used to do fuzzy mat
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | imageId     | String     | Id of image.
 
@@ -114,7 +114,7 @@ Delete all images from your list. The image list can be used to do fuzzy matchin
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.getAllImagesFromList
@@ -123,7 +123,7 @@ Get all Image Ids from list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.getImageListDetails
@@ -132,7 +132,7 @@ Get all details about list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.createImageList
@@ -141,7 +141,7 @@ Create image list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | name        | String     | Name of list.
 | description | String     | Description of list.
 | metadata    | JSON       | Metadata of list.
@@ -152,7 +152,7 @@ Delete list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.getAllImageLists
@@ -161,7 +161,7 @@ Get All Lists.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 
 ## MicrosoftContentModerator.refreshImageSearchIndex
 Refresh Search Index.
@@ -169,7 +169,7 @@ Refresh Search Index.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.updateImageList
@@ -178,7 +178,7 @@ Update image list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | name        | String     | Name of list.
 | description | String     | Description of list.
 | metadata    | JSON       | Metadata of list.
@@ -189,7 +189,7 @@ Add term in list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | term        | String     | Term name.
 | language    | String     | Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
@@ -200,7 +200,7 @@ Delete term from list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | term        | String     | Term name.
 | language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
@@ -211,7 +211,7 @@ Delete All Terms From List.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
@@ -221,7 +221,7 @@ Get All Terms From List.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
@@ -231,7 +231,7 @@ Create term list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | name        | String     | Name of list.
 | description | String     | Description of list.
 | metadata    | JSON       | Metadata of list.
@@ -242,7 +242,7 @@ Delete All Terms From List.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.getAllTermLists
@@ -251,7 +251,7 @@ Get All Term Lists.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 
 ## MicrosoftContentModerator.getTermListDetails
 Get Term List Details.
@@ -259,7 +259,7 @@ Get Term List Details.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 
 ## MicrosoftContentModerator.refreshTermSearchIndex
@@ -268,7 +268,7 @@ Term Lists - Refresh Search Index.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
@@ -278,7 +278,7 @@ Update term list.
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
-| availableApi| Select     | The region that most closely describes your location.
+| region| Select     | The region that most closely describes your location.
 | name        | String     | Name of list.
 | description | String     | Description of list.
 | metadata    | JSON       | Metadata of list.

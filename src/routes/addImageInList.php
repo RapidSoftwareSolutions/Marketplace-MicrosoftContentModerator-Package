@@ -6,7 +6,7 @@ $app->post('/api/MicrosoftContentModerator/addImageInList', function ($request, 
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','listId','imageUrl']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','region','listId','imageUrl']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -14,7 +14,7 @@ $app->post('/api/MicrosoftContentModerator/addImageInList', function ($request, 
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','listId'=>'listId','imageUrl'=>'Value'];
+    $requiredParams = ['apiKey'=>'apiKey','region'=>'region','listId'=>'listId','imageUrl'=>'Value'];
     $optionalParams = ['tag'=>'tag','label'=>'label'];
     $bodyParams = [
        'json' => ['Value'],
@@ -48,12 +48,12 @@ $app->post('/api/MicrosoftContentModerator/addImageInList', function ($request, 
         'Australia East' => 'australiaeast',
         'Brazil South' => 'brazilsouth'
     );
-    $data['availableApi'] = $arrayApi[$data['availableApi']];
+    $data['region'] = $arrayApi[$data['region']];
 
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists/{$data['listId']}/images";
+    $query_str = "https://{$data['region']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists/{$data['listId']}/images";
 
     
 

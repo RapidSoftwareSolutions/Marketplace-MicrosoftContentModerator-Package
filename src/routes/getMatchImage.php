@@ -19,7 +19,7 @@ $app->post('/api/MicrosoftContentModerator/getMatchImage', function ($request, $
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','listId','cacheImage','imageUrl']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','region','listId','cacheImage','imageUrl']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -27,19 +27,19 @@ $app->post('/api/MicrosoftContentModerator/getMatchImage', function ($request, $
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','listId'=>'listId','cacheImage'=>'CacheImage','imageUrl'=>'Value'];
+    $requiredParams = ['apiKey'=>'apiKey','region'=>'region','listId'=>'listId','cacheImage'=>'CacheImage','imageUrl'=>'Value'];
     $optionalParams = [];
     $bodyParams = [
        'json' => ['Value']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-    $data['availableApi'] = $arrayApi[$data['availableApi']];
+    $data['region'] = $arrayApi[$data['region']];
 
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Match?CacheImage={$data['CacheImage']}&listId={$data['listId']}";
+    $query_str = "https://{$data['region']}.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Match?CacheImage={$data['CacheImage']}&listId={$data['listId']}";
 
     
 

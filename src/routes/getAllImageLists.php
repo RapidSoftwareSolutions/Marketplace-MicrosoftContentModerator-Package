@@ -19,7 +19,7 @@ $app->post('/api/MicrosoftContentModerator/getAllImageLists', function ($request
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','region']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -27,18 +27,18 @@ $app->post('/api/MicrosoftContentModerator/getAllImageLists', function ($request
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi'];
+    $requiredParams = ['apiKey'=>'apiKey','region'=>'region'];
     $optionalParams = [];
     $bodyParams = [
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-    $data['availableApi'] = $arrayApi[$data['availableApi']];
+    $data['region'] = $arrayApi[$data['region']];
 
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists";
+    $query_str = "https://{$data['region']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/imagelists";
 
     
 

@@ -34,7 +34,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -77,7 +77,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Evaluate?CacheImage={$data['CacheImage']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Evaluate?CacheImage={$data['CacheImage']}",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -113,7 +113,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -156,7 +156,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/FindFaces?CacheImage={$data['CacheImage']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/FindFaces?CacheImage={$data['CacheImage']}",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -192,7 +192,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -241,7 +241,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Match?CacheImage={$data['CacheImage']}&listId={$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Match?CacheImage={$data['CacheImage']}&listId={$data['listId']}",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -277,7 +277,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -336,7 +336,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/OCR",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/OCR",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -387,7 +387,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -414,7 +414,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/DetectLanguage",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/DetectLanguage",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -457,7 +457,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -519,7 +519,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/Screen\/",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/Screen\/",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}",
@@ -566,7 +566,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -627,7 +627,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -671,7 +671,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -704,7 +704,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images\/{$data['imageId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images\/{$data['imageId']}",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -733,7 +733,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -760,7 +760,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -789,7 +789,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -816,7 +816,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -845,7 +845,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -872,7 +872,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -901,7 +901,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -949,7 +949,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -987,7 +987,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1014,7 +1014,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1043,7 +1043,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1064,7 +1064,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1093,7 +1093,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1120,7 +1120,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/RefreshIndex",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/RefreshIndex",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1155,7 +1155,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1203,7 +1203,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
                 "method": "put",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1241,7 +1241,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1396,7 +1396,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1425,7 +1425,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1580,7 +1580,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1609,7 +1609,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1758,7 +1758,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1787,7 +1787,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -1936,7 +1936,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -1965,7 +1965,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2013,7 +2013,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -2051,7 +2051,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2078,7 +2078,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -2107,7 +2107,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2128,7 +2128,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
                 "method": "delete",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -2157,7 +2157,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2184,7 +2184,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -2213,7 +2213,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2362,7 +2362,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/RefreshIndex?language={$data['language']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/RefreshIndex?language={$data['language']}",
                 "method": "post",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
@@ -2391,7 +2391,7 @@
                     "required": true
                 },
                 {
-                    "name": "availableApi",
+                    "name": "region",
                     "type": "Select",
                     "options": [
                         "West US",
@@ -2445,7 +2445,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "url": "https:\/\/{$data['region']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
                 "method": "put",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
