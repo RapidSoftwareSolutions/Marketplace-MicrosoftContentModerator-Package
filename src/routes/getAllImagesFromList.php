@@ -18,7 +18,21 @@ $app->post('/api/MicrosoftContentModerator/getAllImagesFromList', function ($req
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-
+    $arrayApi = array(
+        'West US' => 'westus',
+        'West US 2' => 'westus2',
+        'East US' => 'eastus',
+        'East US 2' => 'eastus2',
+        'West Central US' => 'westcentralus',
+        'South Central US' => 'southcentralus',
+        'West Europe' => 'westeurope',
+        'North Europe' => 'northeurope',
+        'Southeast Asia' => 'southeastasia',
+        'East Asia' => 'eastasia',
+        'Australia East' => 'australiaeast',
+        'Brazil South' => 'brazilsouth'
+    );
+    $data['availableApi'] = $arrayApi[$data['availableApi']];
     
 
     $client = $this->httpClient;

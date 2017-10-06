@@ -2,7 +2,6 @@
 
 $app->post('/api/MicrosoftContentModerator/createImageList', function ($request, $response) {
 
-
     $arrayApi = array(
         'West US' => 'westus',
         'West US 2' => 'westus2',

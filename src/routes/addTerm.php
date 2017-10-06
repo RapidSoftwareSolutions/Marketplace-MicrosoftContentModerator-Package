@@ -18,16 +18,6 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-
-    
-
-    $client = $this->httpClient;
-    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/terms/{$data['term']}?language={$data['language']}";
-
-    
-
-    $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
-    $requestParams['headers'] = ["Ocp-Apim-Subscription-Key"=>"{$data['apiKey']}"];
     $arrayApi = array(
         'West US' => 'westus',
         'West US 2' => 'westus2',
@@ -43,6 +33,16 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
         'Brazil South' => 'brazilsouth'
     );
     $data['availableApi'] = $arrayApi[$data['availableApi']];
+    
+
+    $client = $this->httpClient;
+    $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/terms/{$data['term']}?language={$data['language']}";
+
+    
+
+    $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
+    $requestParams['headers'] = ["Ocp-Apim-Subscription-Key"=>"{$data['apiKey']}"];
+
 
     try {
         $resp = $client->post($query_str, $requestParams);

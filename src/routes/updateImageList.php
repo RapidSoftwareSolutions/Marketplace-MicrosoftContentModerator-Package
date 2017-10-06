@@ -4,7 +4,7 @@ $app->post('/api/MicrosoftContentModerator/updateImageList', function ($request,
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','name','description']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','name','description','listId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/MicrosoftContentModerator/updateImageList', function ($request,
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','name'=>'Name','description'=>'Description'];
+    $requiredParams = ['apiKey'=>'apiKey','availableApi'=>'availableApi','name'=>'Name','description'=>'Description','listId' => 'listId'];
     $optionalParams = ['metadata'=>'Metadata'];
     $bodyParams = [
        'json' => ['Name','Description','Metadata']
