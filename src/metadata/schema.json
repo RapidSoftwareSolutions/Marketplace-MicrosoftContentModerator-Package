@@ -1,0 +1,1890 @@
+{
+    "package": "MicrosoftContentModerator",
+    "tagline": "MicrosoftContentModerator API",
+    "description": "Machine-assisted moderation of text and images.Image moderation - enhance your ability to detect potentially offensive or unwanted images through machine-learning based classifiers, custom blacklists, and optical character recognition (OCR).Text moderation - helps you detect potential profanity in more than 100 languages and match text against your custom lists automatically. Content Moderator also checks for possible personally identifiable information (PII).",
+    "image": "https:\/\/logo.clearbit.com\/\/www.microsoft.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MicrosoftContentModerator-Package",
+    "keywords": [
+        "API",
+        "Moderate",
+        "Scan",
+        "Image",
+        "Text"
+    ],
+    "accounts": {
+        "domain": "https:\/\/azure.microsoft.com\/en-us\/services\/cognitive-services\/content-moderator\/",
+        "credentials": [
+            "apiKey"
+        ]
+    },
+    "steps": [
+        "Subscribe to the Content Moderator API on the Microsoft Azure portal.(https:\/\/portal.azure.com\/#create\/Microsoft.CognitiveServices\/apitype\/ContentModerator)",
+        "Sign up for the content moderator review tool.(http:\/\/contentmoderator.cognitive.microsoft.com\/)",
+        "In settings->credential section you will see apiKey (Ocp-Apim-Subscription-Key)"
+    ],
+    "blocks": [
+        {
+            "name": "evaluateImage",
+            "description": "Returns probabilities of the image containing racy or adult content.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "cacheImage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to retain the submitted image for future use; defaults to false if omitted.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "CacheImage"
+                    }
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "String",
+                    "info": "Image url for scan.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Value"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Evaluate?CacheImage={$data['CacheImage']}",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Value"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "findFaces",
+            "description": "Returns probabilities of the image containing faces.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "cacheImage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to retain the submitted image for future use; defaults to false if omitted.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "CacheImage"
+                    }
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "String",
+                    "info": "Image url for scan.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Value"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/FindFaces?CacheImage={$data['CacheImage']}",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Value"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMatchImage",
+            "description": "Fuzzily match an image against one of your custom Image Lists. You can create and manage your custom image lists using this API.Returns ID and tags of matching image.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The id of list.",
+                    "required": true
+                },
+                {
+                    "name": "cacheImage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to retain the submitted image for future use; defaults to false if omitted.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "CacheImage"
+                    }
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "String",
+                    "info": "Image url for scan.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Value"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/Match?CacheImage={$data['CacheImage']}&listId={$data['listId']}",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Value"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getImageText",
+            "description": "Returns any text found in the image for the language specified.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "cacheImage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to retain the submitted image for future use; defaults to false if omitted.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "CacheImage"
+                    }
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "String",
+                    "info": "Image url for scan.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Value"
+                    }
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "ISO 639-3 code.",
+                    "required": true
+                },
+                {
+                    "name": "enhanced",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "When set to True, the image goes through additional processing to come with additional candidates.Image\/tiff is not supported when enhanced is set to true.Note: This impacts the response time.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessImage\/OCR",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Value"
+                        ]
+                    },
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "CacheImage",
+                            "language",
+                            "enhanced"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "detectLanguage",
+            "description": "This operation will detect the language of given input content. Returns the ISO 639-3 code for the predominant language comprising the submitted text. Over 110 languages supported.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "contentType",
+                    "type": "Select",
+                    "options":["text/plain","text/html","text/xml","text/markdown"],
+                    "info": "Media type of the body sent to the API.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "Text for scan.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/DetectLanguage",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "body",
+                        "parameters": [
+                            "text"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "detectProfanityLanguage",
+            "description": "The operation detects profanity in more than 100 languages and match against custom and shared blacklists.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "contentType",
+                    "type": "Select",
+                    "options":["text/plain","text/html","text/xml","text/markdown"],
+                    "info": "Media type of the body sent to the API.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "Text for scan.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Optional parameter. If no language is specified, it would default to English.",
+                    "required": true
+                },
+                {
+                    "name": "autocorrect",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Runs auto correction on the input, before running other operations.",
+                    "required": false
+                },
+                {
+                    "name": "personalIdentifiableInformation",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Detects Personal Identifiable Information (PII) in the input.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "Pll"
+                    }
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/moderate\/v1.0\/ProcessText\/Screen\/",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}",
+                    "Content-Type": "{$data['contentType']}"
+
+                },
+                "requestParameters": [
+                    {
+                        "type": "body",
+                        "parameters": [
+                            "text"
+                        ]
+                    },
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "autocorrect",
+                            "listId",
+                            "language",
+                            "Pll"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addImageInList",
+            "description": "Add an Image to your image list. The image list can be used to do fuzzy matching against other images when using Image\/Match API.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "tag",
+                    "type": "Select",
+                    "options": [
+                        "101: Nudity",
+                        "102: Sexual Content",
+                        "201: Alcohol",
+                        "202: Tobacco",
+                        "203: Drugs",
+                        "301: Child Exploitation",
+                        "401: Violence",
+                        "402: Weapons",
+                        "403: Gore",
+                        "501: Profanity",
+                        "502: Vulgarity"
+                    ],
+                    "info": "The list to be for matching.",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "type": "String",
+                    "info": "Any additional information about the reference image.",
+                    "required": false
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "String",
+                    "info": "Image url for scan.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Value"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Value"
+                        ]
+                    },
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "listId",
+                            "label",
+                            "tag"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteImageFromList",
+            "description": "Delete an Image from your image list. The image list can be used to do fuzzy matching against other images when using Image\/Match API.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "imageId",
+                    "type": "String",
+                    "info": "Id of image.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images\/{$data['imageId']}",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteAllImagesFromList",
+            "description": "Delete all images from your list. The image list can be used to do fuzzy matching against other images when using Image\/Match API.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllImagesFromList",
+            "description": "Get all Image Ids from list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/images",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getImageListDetails",
+            "description": "Get all details about list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "createImageList",
+            "description": "Create image list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Name"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Description of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Description"
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "JSON",
+                    "info": "Metadata of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Metadata"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Name",
+                            "Description",
+                            "Metadata"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteImageList",
+            "description": "Delete list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllImageLists",
+            "description": "Get All Lists.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "refreshImageSearchIndex",
+            "description": "Refresh Search Index.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}\/RefreshIndex",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateImageList",
+            "description": "Update image list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Name"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Description of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Description"
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "JSON",
+                    "info": "Metadata of list.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "Metadata"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/imagelists\/{$data['listId']}",
+                "method": "put",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Name",
+                            "Description",
+                            "Metadata"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addTerm",
+            "description": "Add term in list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "term",
+                    "type": "String",
+                    "info": "Term name.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Language code.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteTerm",
+            "description": "Delete term from list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "term",
+                    "type": "String",
+                    "info": "Term name.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Language code.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms\/{$data['term']}?language={$data['language']}",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteAllTermsFromList",
+            "description": "Delete All Terms From List.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Language code.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllTermsFromList",
+            "description": "Delete All Terms From List.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Language code.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/terms?language={$data['language']}",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "createTermList",
+            "description": "Create term list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Name"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Description of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Description"
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "JSON",
+                    "info": "Metadata of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Metadata"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Name",
+                            "Description",
+                            "Metadata"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteTermList",
+            "description": "Delete All Terms From List.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllTermLists",
+            "description": "Get All Term Lists.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists",
+                "method": "delete",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTermListDetails",
+            "description": "Get Term List Details.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "refreshTermSearchIndex",
+            "description": "Term Lists - Refresh Search Index.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Language code.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}\/RefreshIndex?language={$data['language']}",
+                "method": "post",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateTermList",
+            "description": "Update term list.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "availableApi",
+                    "type": "Select",
+                    "options": [
+                        "West US",
+                        "West US 2",
+                        "East US",
+                        "East US 2",
+                        "West Central US",
+                        "South Central US",
+                        "West Europe",
+                        "North Europe",
+                        "Southeast Asia",
+                        "East Asia",
+                        "Australia East",
+                        "Brazil South"
+                    ],
+                    "info": "The region that most closely describes your location.",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Name"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Description of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Description"
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "JSON",
+                    "info": "Metadata of list.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "Metadata"
+                    }
+                },
+                {
+                    "name": "listId",
+                    "type": "String",
+                    "info": "The list to be for matching.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['availableApi']}.api.cognitive.microsoft.com\/contentmoderator\/lists\/v1.0\/termlists\/{$data['listId']}",
+                "method": "put",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['apiKey']}"
+                },
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "Name",
+                            "Description",
+                            "Metadata"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
