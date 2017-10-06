@@ -2,6 +2,7 @@
 
 $app->post('/api/MicrosoftContentModerator/updateTermList', function ($request, $response) {
 
+
     $settings = $this->settings;
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','name','description','metadata','listId']);
