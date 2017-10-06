@@ -321,7 +321,7 @@
                 {
                     "name": "language",
                     "type": "String",
-                    "info": "ISO 639-3 code.",
+                    "info": "ISO 639-3 code.See more in readme.",
                     "required": true
                 },
                 {
@@ -485,7 +485,7 @@
                 {
                     "name": "language",
                     "type": "String",
-                    "info": "Optional parameter. If no language is specified, it would default to English.",
+                    "info": "ISO 639-3 code.See more in readme.",
                     "required": true
                 },
                 {
@@ -1391,7 +1391,7 @@
                         "Wolof",
                         "Yoruba"
                     ],
-                    "info": "Language code.",
+                    "info": "Language code.See more in readme.",
                     "required": true
                 }
             ],
@@ -1575,7 +1575,7 @@
                         "Wolof",
                         "Yoruba"
                     ],
-                    "info": "Language code.",
+                    "info": "Language code.See more in readme.",
                     "required": true
                 }
             ],
@@ -1753,7 +1753,7 @@
                         "Wolof",
                         "Yoruba"
                     ],
-                    "info": "Language code.",
+                    "info": "Language code.See more in readme.",
                     "required": true
                 }
             ],
@@ -1778,7 +1778,7 @@
         },
         {
             "name": "getAllTermsFromList",
-            "description": "Delete All Terms From List.",
+            "description": "Get All Terms From List.",
             "args": [
                 {
                     "name": "apiKey",
@@ -1931,7 +1931,7 @@
                         "Wolof",
                         "Yoruba"
                     ],
-                    "info": "Language code.",
+                    "info": "Language code.See more in readme.",
                     "required": true
                 }
             ],
@@ -2357,7 +2357,7 @@
                         "Wolof",
                         "Yoruba"
                     ],
-                    "info": "Language code.",
+                    "info": "Language code.See more in readme.",
                     "required": true
                 }
             ],

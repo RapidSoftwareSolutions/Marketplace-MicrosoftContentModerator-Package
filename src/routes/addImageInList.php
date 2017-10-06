@@ -24,6 +24,16 @@ $app->post('/api/MicrosoftContentModerator/addImageInList', function ($request, 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
 
+    if(!empty($data['tag']))
+    {
+        $part = explode(':',$data['tag']);
+        if(!empty($part[0]))
+        {
+            $data['tag'] = $part[0];
+        }
+    }
+
+
     $arrayApi = array(
         'West US' => 'westus',
         'West US 2' => 'westus2',

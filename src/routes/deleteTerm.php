@@ -2,6 +2,7 @@
 
 $app->post('/api/MicrosoftContentModerator/deleteTerm', function ($request, $response) {
 
+
     $settings = $this->settings;
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, ['apiKey','availableApi','listId','term','language']);

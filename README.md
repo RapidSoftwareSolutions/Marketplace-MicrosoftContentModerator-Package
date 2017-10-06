@@ -59,7 +59,7 @@ Returns any text found in the image for the language specified.
 | availableApi| Select     | The region that most closely describes your location.
 | cacheImage  | Select     | Whether to retain the submitted image for future use; defaults to false if omitted.
 | imageUrl    | String     | Image url for scan.
-| language    | String     | ISO 639-3 code.
+| language    | String     | ISO 639-3 code. See more [here](http://www-01.sil.org/iso639-3/codes.asp).
 | enhanced    | Select     | When set to True, the image goes through additional processing to come with additional candidates.Image/tiff is not supported when enhanced is set to true.Note: This impacts the response time.
 
 ## MicrosoftContentModerator.detectLanguage
@@ -81,7 +81,7 @@ The operation detects profanity in more than 100 languages and match against cus
 | contentType                    | Select     | Media type of the body sent to the API.
 | availableApi                   | Select     | The region that most closely describes your location.
 | text                           | String     | Text for scan.
-| language                       | String     | Optional parameter. If no language is specified, it would default to English.
+| language                       | String     | ISO 639-3 code. See more [here](http://www-01.sil.org/iso639-3/codes.asp).
 | autocorrect                    | Select     | Runs auto correction on the input, before running other operations.
 | personalIdentifiableInformation| Select     | Detects Personal Identifiable Information (PII) in the input.
 | listId                         | String     | The list to be for matching.
@@ -192,7 +192,7 @@ Add term in list.
 | availableApi| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | term        | String     | Term name.
-| language    | String     | Language code.
+| language    | String     | Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
 ## MicrosoftContentModerator.deleteTerm
 Delete term from list.
@@ -203,7 +203,7 @@ Delete term from list.
 | availableApi| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
 | term        | String     | Term name.
-| language    | String     | Language code.
+| language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
 ## MicrosoftContentModerator.deleteAllTermsFromList
 Delete All Terms From List.
@@ -213,17 +213,17 @@ Delete All Terms From List.
 | apiKey      | credentials| Your API Key.
 | availableApi| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
-| language    | String     | Language code.
+| language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
 ## MicrosoftContentModerator.getAllTermsFromList
-Delete All Terms From List.
+Get All Terms From List.
 
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiKey      | credentials| Your API Key.
 | availableApi| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
-| language    | String     | Language code.
+| language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
 ## MicrosoftContentModerator.createTermList
 Create term list.
@@ -270,7 +270,7 @@ Term Lists - Refresh Search Index.
 | apiKey      | credentials| Your API Key.
 | availableApi| Select     | The region that most closely describes your location.
 | listId      | String     | The list to be for matching.
-| language    | String     | Language code.
+| language    | String     |  Language code.All list [here](https://wabashcognitiveservices.portal.azure-api.net/text/supportedlanguages).
 
 ## MicrosoftContentModerator.updateTermList
 Update term list.
