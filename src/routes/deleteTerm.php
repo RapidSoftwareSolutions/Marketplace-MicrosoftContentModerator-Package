@@ -33,7 +33,14 @@ $app->post('/api/MicrosoftContentModerator/deleteTerm', function ($request, $res
         'Brazil South' => 'brazilsouth'
     );
     $data['availableApi'] = $arrayApi[$data['availableApi']];
-    
+
+    if(!empty($data['language']) && !empty($this->settings['langSelect'][$data['language']]))
+    {
+        if(!empty($this->settings['langSelect'][$data['language']]))
+        {
+            $data['language'] = $this->settings['langSelect'][$data['language']];
+        }
+    }
 
     $client = $this->httpClient;
     $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/terms/{$data['term']}?language={$data['language']}";

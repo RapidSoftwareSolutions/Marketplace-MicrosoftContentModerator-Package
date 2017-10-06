@@ -18,6 +18,17 @@ $app->post('/api/MicrosoftContentModerator/addTerm', function ($request, $respon
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    if(!empty($data['language']) && !empty($this->settings['langSelect'][$data['language']]))
+    {
+        if(!empty($this->settings['langSelect'][$data['language']]))
+        {
+            $data['language'] = $this->settings['langSelect'][$data['language']];
+        }
+
+    }
+
+
+
     $arrayApi = array(
         'West US' => 'westus',
         'West US 2' => 'westus2',

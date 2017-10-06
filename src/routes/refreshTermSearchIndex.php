@@ -18,6 +18,7 @@ $app->post('/api/MicrosoftContentModerator/refreshTermSearchIndex', function ($r
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+
     $arrayApi = array(
         'West US' => 'westus',
         'West US 2' => 'westus2',
@@ -32,8 +33,16 @@ $app->post('/api/MicrosoftContentModerator/refreshTermSearchIndex', function ($r
         'Australia East' => 'australiaeast',
         'Brazil South' => 'brazilsouth'
     );
+
     $data['availableApi'] = $arrayApi[$data['availableApi']];
-    
+    if(!empty($data['language']) && !empty($this->settings['langSelect'][$data['language']]))
+    {
+        if(!empty($this->settings['langSelect'][$data['language']]))
+        {
+            $data['language'] = $this->settings['langSelect'][$data['language']];
+        }
+
+    }
 
     $client = $this->httpClient;
     $query_str = "https://{$data['availableApi']}.api.cognitive.microsoft.com/contentmoderator/lists/v1.0/termlists/{$data['listId']}/RefreshIndex?language={$data['language']}";
