@@ -6,8 +6,8 @@ Machine-assisted moderation of text and images.Image moderation - enhance your a
 * Credentials: apiKey
 
 ## How to get credentials: 
-0. Subscribe to the Content Moderator API on the Microsoft Azure portal.(https:\/\/portal.azure.com\/#create\/Microsoft.CognitiveServices\/apitype\/ContentModerator)
-1. Sign up for the content moderator review tool.(http:\/\/contentmoderator.cognitive.microsoft.com\/)
+0. Subscribe to the Content Moderator API on the [Microsoft Azure portal](https:\/\/portal.azure.com\/#create\/Microsoft.CognitiveServices\/apitype\/ContentModerator).
+1. Sign up for the content moderator review [tool](http:\/\/contentmoderator.cognitive.microsoft.com\/)
 2. In settings->credential section you will see apiKey (Ocp-Apim-Subscription-Key)
  
   ## Custom datatypes: 
